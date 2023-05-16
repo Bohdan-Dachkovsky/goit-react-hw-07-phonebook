@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {ContactForm} from './components/ContactForm/ContactForm.jsx';
 import {ContactList} from './components/ContactList/ContactList.jsx';
 import {Filter} from './components/Filter/Filter.jsx';
-import {getLoading, errorMessage} from './redux/contacts/selectors.js';
+import {getTasks, getLoading, errorMessage} from './redux/contacts/selectors.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {addUser} from './redux/operations.js';
 
@@ -17,7 +17,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(addUser());
   }, [dispatch]);
-  const contacts = 1;
+  const contacts = useSelector(getTasks);
   return (
     <div
     className='App'
