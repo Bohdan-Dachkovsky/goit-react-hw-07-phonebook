@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { addUser } from '../../redux/operations.js';
-import { selectedUsers } from '../../redux/contacts/selectors.js';
+import { getTasks } from '../../redux/contacts/selectors.js';
 import nextId from 'react-id-generator';
 
 const Label = styled.label`
@@ -65,7 +65,7 @@ const SubmButton = styled.button`
   margin-left: 50px;
 `;
 export default function ContactForm() {
-  const contacts = useSelector(selectedUsers);
+  const contacts = useSelector(getTasks);
   const [state, setState] = useState({
     name: '',
     number: '',

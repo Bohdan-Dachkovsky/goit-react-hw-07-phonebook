@@ -1,13 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
-import {ContactForm} from './components/ContactForm/ContactForm.jsx';
-import {ContactList} from './components/ContactList/ContactList.jsx';
-import {Filter} from './components/Filter/Filter.jsx';
+import ContactForm from './components/ContactForm/ContactForm.jsx';
+import ContactList from './components/ContactList/ContactList.jsx';
+import Filter from './components/Filter/Filter.jsx';
 import {getTasks, getLoading, errorMessage} from './redux/contacts/selectors.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {addUser} from './redux/operations.js';
 
-import './App.css';
 
 
 export const App = () => {
@@ -19,9 +18,7 @@ export const App = () => {
   }, [dispatch]);
   const contacts = useSelector(getTasks);
   return (
-    <div
-    className='App'
-    style={{
+    <div style={{
       height: '100vh',
       display: 'flex',
       justifyContent: 'center',
@@ -32,7 +29,7 @@ export const App = () => {
   >
     <h1>Phonebook</h1>
     <ContactForm />
-    {contacts?.length && <Filter />}
+    {[...contacts]?.length && <Filter />}
     {isLoading && !error && <b>Request in progress...</b>}
     <ContactList />
   </div>
