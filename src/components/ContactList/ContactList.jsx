@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filteredContacts } from '../../redux/findByName/selectors.js';
 import styled from 'styled-components';
-import { dltContact } from '../../redux/contacts/contactSlice.js';
-import { selectedPerson } from '../../redux/contacts/selectors.js';
+import { dltUser } from '../../redux/operations.js';
+import { getTasks, getStatusFilter } from '../../redux/contacts/selectors.js';
+
 const TaskList = styled.ul`
   display: block;
   width: 600px;
@@ -25,9 +25,9 @@ const Button = styled.button`
   margin-left: 4px;
 `;
 export default function ContactList() {
-  const contacts = useSelector(selectedPerson);
+  const contacts = useSelector(getTasks);
   const dispatch = useDispatch();
-  const filtered = useSelector(filteredContacts);
+  const filtered = useSelector(getStatusFilter);
   const contactsName = [...contacts].filter(contact =>
     contact.name
       .toString()
@@ -49,7 +49,7 @@ export default function ContactList() {
             <Button
               type="button"
               name="delete"
-              onClick={() => dispatch(dltContact(contact.id))}
+              onClick={() => dispatch(dltUser(contact.id))}
             >
               Delete
             </Button>

@@ -29,7 +29,11 @@ export const contactSlice = createSlice({
     [dltContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      const index = state.items.findIndex(
+        task => task.id === action.payload.id
+      );
+      state.items.splice(index, 1, action.payload);
+    }
     },
     [dltContact.rejected](state, action) {
       state.isLoading = true;

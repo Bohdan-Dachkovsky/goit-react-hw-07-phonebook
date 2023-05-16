@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { addUser } from '../../redux/contacts/contactSlice.js';
+import { addUser } from '../../redux/operations.js';
 import { selectedUsers } from '../../redux/contacts/selectors.js';
 import nextId from 'react-id-generator';
 
