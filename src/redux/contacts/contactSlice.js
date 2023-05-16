@@ -51,7 +51,7 @@ export const contactSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-},},);
+});
 
 
 export default contactSlice.reducer;
