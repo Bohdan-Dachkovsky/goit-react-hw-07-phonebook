@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react'
+import ContactForm from './components/ContactForm/ContactForm.jsx'
+import ContactList from './components/ContactList/ContactList.jsx'
+import Filter from './components/Filter/Filter.jsx'
 import './App.css';
 
-function App() {
+export const App = () => {
+  const contacts = 1;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div
+    className='App'
+    style={{
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: 40,
+      color: '#010101',
+    }}
+  >
+    <h1>Phonebook</h1>
+    <ContactForm />
+    {contacts?.length && <Filter />}
+    <ContactList />
+  </div>
+  )
 }
 
-export default App;
+
