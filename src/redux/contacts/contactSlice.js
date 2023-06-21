@@ -12,20 +12,23 @@ const handleRejected = (state, action) => {
 export const contactSlice = createSlice({
   name: 'user',
   initialState: {
-    contacts: { 
     items: [],
     isLoading: false,
     error: null,
     filter: [] 
-  }
   },
   
   exstraReducers: {
     [addUser.pending]:handlePending,
-    [addUser.fulfilled](state, action) {
-    state.isLoading = false
-    state.error = null;
-    state.items = action.payload;
+    [addUser.fulfilled]: (state, action) => {
+      return {
+        ...state, 
+        items: [...state.items, action.payload], 
+        isLoading: false,
+        error: null,
+
+      }
+     
   },
     [addUser.rejected]:handleRejected,
     [dltUser.pending]:handlePending,
