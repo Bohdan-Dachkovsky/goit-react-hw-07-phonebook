@@ -1,0 +1,15 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 50%;
+    margin-left: 55px;   
+}
+.block {
+display: inline;
+flex-direction: column;
+justify-content: start;
+max-width: 480px;
+max-height: 60px;
+}

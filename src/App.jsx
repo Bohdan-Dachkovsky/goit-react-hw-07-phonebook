@@ -6,7 +6,7 @@ import Filter from './components/Filter/Filter.jsx';
 import {getTasks, getLoading, errorMessage} from './redux/contacts/selectors.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {addUser} from './redux/operations.js';
-
+import mainStyle from './index.css';
 
 
 export const App = () => {
@@ -18,18 +18,11 @@ export const App = () => {
   }, [dispatch]);
   const contacts = useSelector(getTasks);
   return (
-    <div style={{
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: 40,
-      color: '#010101',
-    }}
+    <div className={mainStyle.container}
   >
     <h1>Phonebook</h1>
     <ContactForm />
-    {contacts?.length>0 || <Filter />}
+    {contacts?.length > 0 || <Filter />}
     {isLoading && !error && <b>Request in progress...</b>}
     <ContactList />
   </div>
