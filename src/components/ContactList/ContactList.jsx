@@ -30,9 +30,8 @@ export default function ContactList() {
   const filtered = useSelector(getStatusFilter);
   const contactsName = [...contacts].filter(contact =>
     contact.name
-      .toString()
       .toLowerCase()
-      .includes(...filtered.toString().toLowerCase()) 
+      .includes(filtered.toLowerCase()) 
   );
   return (
     <TaskList>
@@ -42,7 +41,7 @@ export default function ContactList() {
       </li>
 
       {contactsName?.length ? (
-        contactsName.map((contact, idx, arr) => (
+        [...contactsName].map((contact, idx, arr) => (
           <List key={contact.id}>
             {contact.name + ':' + contact.number}
 

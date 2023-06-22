@@ -15,7 +15,7 @@ export const contactSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    filter: [] 
+    filter: '', 
   },
   
   exstraReducers: {
