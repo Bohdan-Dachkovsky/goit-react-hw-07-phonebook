@@ -29,7 +29,7 @@ export const App = () => {
   >
     <h1>Phonebook</h1>
     <ContactForm />
-    {[...contacts]?.length && <Filter />}
+    {contacts?.length>0 && <Filter />}
     {isLoading && !error && <b>Request in progress...</b>}
     <ContactList />
   </div>

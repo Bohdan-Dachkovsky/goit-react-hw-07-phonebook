@@ -42,7 +42,7 @@ export default function ContactList() {
       </li>
 
       {contactsName?.length ? (
-        contacts.map((contact, idx, arr) => (
+        contactsName.map((contact, idx, arr) => (
           <List key={contact.id}>
             {contact.name + ':' + contact.number}
 

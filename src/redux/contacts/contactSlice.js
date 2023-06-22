@@ -32,7 +32,7 @@ export const contactSlice = createSlice({
   },
     [addUser.rejected]:handleRejected,
     [dltUser.pending]:handlePending,
-    [dltUser.fulfilled](state, action) {
+    [dltUser.fulfilled]:(state, action) => {
       state.isLoading = false;
       state.error = null;
       const index = state.items.findIndex(
@@ -49,7 +49,7 @@ export const contactSlice = createSlice({
     [searchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.push(action.payload);
+      state.filter.push(action.payload);
     },
     [searchContacts.rejected]:handleRejected,
     
