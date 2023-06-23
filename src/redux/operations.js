@@ -22,7 +22,7 @@ export const dltUser = createAsyncThunk('task/dltContact', async (itemId, thunkA
 })  
 export const getAllcontacts = createAsyncThunk('task/getAllcontacts', async (_, thunkAPI) => {
       try {
-            const {data} =  await axios.get(`/contacts`)
+            const {data} = await axios.get(`/contacts`)
             return data
       }
       catch (error) {

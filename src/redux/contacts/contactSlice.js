@@ -49,6 +49,7 @@ export const contactSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
+      console.log(action.payload)
     },
     [getAllcontacts.rejected]:handleRejected,
     
