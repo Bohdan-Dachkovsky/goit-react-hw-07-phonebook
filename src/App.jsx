@@ -5,7 +5,7 @@ import ContactList from './components/ContactList/ContactList.jsx';
 import Filter from './components/Filter/Filter.jsx';
 import {getTasks, getLoading, errorMessage} from './redux/contacts/selectors.js';
 import {useSelector, useDispatch} from 'react-redux';
-import {addUser} from './redux/operations.js';
+import {getAllcontacts} from './redux/operations.js';
 import mainStyle from './index.css';
 
 
@@ -14,7 +14,7 @@ export const App = () => {
   const isLoading = useSelector(getLoading);
   const error = useSelector(errorMessage);
   useEffect(() => {
-    dispatch(addUser());
+    dispatch(getAllcontacts());
   }, [dispatch]);
   const contacts = useSelector(getTasks);
   return (
