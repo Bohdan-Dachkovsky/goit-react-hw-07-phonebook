@@ -25,13 +25,14 @@ const Button = styled.button`
   margin-left: 4px;
 `;
 export default function ContactList() {
+  const dispatch = useDispatch();
   const contacts = useSelector(getTasks);
   const isLoading = useSelector(getLoading);
   const error = useSelector(errorMessage);
-  const dispatch = useDispatch();
   const filtered = useSelector(getStatusFilter);
+  console.log(filtered)
   const contactsName = [...contacts].filter(contact =>
-    contact.name
+    contact.newUser.name
       .toLowerCase()
       .includes(filtered.toLowerCase()) 
   );
@@ -46,8 +47,8 @@ export default function ContactList() {
       {contactsName?.length && isLoading ? (
         [...contactsName].map((contact, idx, arr) => (
 
-          <List key={contact.id}>
-            {contact.name + ':' + contact.number}
+          <List key={contact.newUser.id}>
+            {contact.newUser.name + ':' + contact.newUser.number}
 
             <Button
               type="button"
