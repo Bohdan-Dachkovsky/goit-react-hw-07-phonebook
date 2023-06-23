@@ -30,7 +30,7 @@ export default function ContactList() {
   const isLoading = useSelector(getLoading);
   const error = useSelector(errorMessage);
   const filtered = useSelector(getStatusFilter);
-  console.log(filtered)
+ 
   const contactsName = [...contacts].filter(contact =>
     contact.newUser.name
       .toLowerCase()
