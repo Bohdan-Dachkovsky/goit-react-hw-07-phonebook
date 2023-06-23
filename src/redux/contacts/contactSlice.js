@@ -17,7 +17,11 @@ export const contactSlice = createSlice({
     error: null,
     filter: '', 
   },
-  
+  reducers: {
+  searchContacts: (state, action) => {
+  state.filter = action.payload
+  }
+  },
   exstraReducers: {
     [addUser.pending]:handlePending,
     [addUser.fulfilled]: (state, action) => {
@@ -50,5 +54,5 @@ export const contactSlice = createSlice({
     
 });
 
-
+export const {searchContacts} = contactSlice.actions
 export default contactSlice.reducer;
