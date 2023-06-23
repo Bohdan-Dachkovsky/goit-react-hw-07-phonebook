@@ -70,7 +70,6 @@ export default function ContactForm() {
     name: '',
     number: '',
   });
-
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
