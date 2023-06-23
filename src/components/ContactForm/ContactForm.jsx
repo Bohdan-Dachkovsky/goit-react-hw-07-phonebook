@@ -26,12 +26,7 @@ const Form = styled.form`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   margin-bottom: 16px;
 `;
-const Input = styled.input.attrs(props => ({
-  width: 'auto',
-  type: 'text',
-  size: props.size || '1em',
-  border: '1px',
-}))`
+const Input = styled.input`
   font-size: 1em;
   border: 2px solid DarkSlateBlue;
   border-radius: 3px;
