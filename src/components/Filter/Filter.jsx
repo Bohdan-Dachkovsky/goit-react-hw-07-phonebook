@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { searchContacts } from '../../redux/operations.js';
+import { getAllcontacts } from '../../redux/operations.js';
 import searchCss from './search.module.css'
 export default function Filter() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function Filter() {
       <input
         type="text"
         className={searchCss.textEl}
-        onChange={e => dispatch(searchContacts(e.target.value))}
+        onChange={e => dispatch(getAllcontacts(e.target.value))}
         placeholder="Search"
       />
     </div>
