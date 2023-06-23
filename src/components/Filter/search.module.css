@@ -1,15 +1,18 @@
 .block {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: column;  
+    justify-content: flex-start;
     flex-wrap: wrap;
-    width: 50%;
-    margin-left: 55px;   
+    width: 50%;   
+    margin-left: 50px;
+    
 }
-.block {
-display: inline;
-flex-direction: column;
-justify-content: start;
-max-width: 480px;
+.textEl {
+margin: 0px;
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+max-width: 380px;
 max-height: 60px;
+
 }

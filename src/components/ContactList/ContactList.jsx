@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { dltUser } from '../../redux/operations.js';
-import { getTasks, getStatusFilter } from '../../redux/contacts/selectors.js';
+import { getTasks, getStatusFilter, getLoading, errorMessage} from '../../redux/contacts/selectors.js';
 
 const TaskList = styled.ul`
   display: block;
@@ -26,6 +26,8 @@ const Button = styled.button`
 `;
 export default function ContactList() {
   const contacts = useSelector(getTasks);
+  const isLoading = useSelector(getLoading);
+  const error = useSelector(errorMessage);
   const dispatch = useDispatch();
   const filtered = useSelector(getStatusFilter);
   const contactsName = [...contacts].filter(contact =>
@@ -35,13 +37,15 @@ export default function ContactList() {
   );
   return (
     <TaskList>
+    {error || <p>Add contact please!</p>}
       <li>
         <h2>Contacts</h2>
         {!contacts.length < 0 ? <p>No data contacts!</p> : undefined}
       </li>
-
-      {contactsName?.length ? (
+   
+      {contactsName?.length && isLoading ? (
         [...contactsName].map((contact, idx, arr) => (
+
           <List key={contact.id}>
             {contact.name + ':' + contact.number}
 

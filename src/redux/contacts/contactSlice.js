@@ -21,14 +21,9 @@ export const contactSlice = createSlice({
   exstraReducers: {
     [addUser.pending]:handlePending,
     [addUser.fulfilled]: (state, action) => {
-      return {
-        ...state, 
-        items: [...state.items, action.payload], 
-        isLoading: false,
-        error: null,
-
-      }
-     
+        state.items = action.payload; 
+        state.isLoading = false;
+        state.error = null;
   },
     [addUser.rejected]:handleRejected,
     [dltUser.pending]:handlePending,
@@ -49,7 +44,7 @@ export const contactSlice = createSlice({
     [searchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.filter.push(action.payload);
+      state.filter = action.payload;
     },
     [searchContacts.rejected]:handleRejected,
     

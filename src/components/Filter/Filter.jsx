@@ -10,7 +10,7 @@ export default function Filter() {
       Find contacts by name
       <input
         type="text"
-        className={searchCss.block}
+        className={searchCss.textEl}
         onChange={e => dispatch(searchContacts(e.target.value))}
         placeholder="Search"
       />
