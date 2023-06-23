@@ -12,7 +12,7 @@ export const dltUser = createAsyncThunk('task/dltContact', async (itemId, thunkA
       await axios.delete(`/contacts/${itemId}`).then((response) => response.data)
       .catch(error => thunkAPI.rejectWithValue(error.message));
 })  
-export const searchContacts = createAsyncThunk('task/searchContacts', async (searchId, thunkAPI) => {
+export const searchContacts = createAsyncThunk('task/searchContacts', async (_, thunkAPI) => {
 
      await axios.get(`/contacts/${searchId}`).then((response) => response.data)
      .catch(error => thunkAPI.rejectWithValue(error.message));
