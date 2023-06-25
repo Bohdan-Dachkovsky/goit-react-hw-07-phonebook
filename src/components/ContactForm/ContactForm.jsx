@@ -72,8 +72,8 @@ export default function ContactForm() {
     if (state.name && state.number) {
       dispatch(
         addUser({
-          id: nextId(),
           ...state,
+          id: nextId(),
         })
       );
       setState({
