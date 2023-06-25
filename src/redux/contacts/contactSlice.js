@@ -28,7 +28,9 @@ export const contactSlice = createSlice({
         state.items = action.payload; 
         state.isLoading = false;
         state.error = null;
+        console.log(action)
   },
+
     [addUser.rejected]:handleRejected,
     [dltUser.pending]:handlePending,
     [dltUser.fulfilled]:(state, action) => {

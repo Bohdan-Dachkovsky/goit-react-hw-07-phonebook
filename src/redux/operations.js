@@ -4,6 +4,7 @@ axios.defaults.baseURL = 'https://646391b4043c103502a657a0.mockapi.io/contacts';
 export const addUser = createAsyncThunk('task/addUser', async ({name, phone, id}, thunkAPI) => {
       try {
             const {data} =  await axios.post("/contacts", {name, phone, id})
+            console.log(data)
             return data
       }
       catch (error) {
