@@ -18,44 +18,40 @@ export const contactSlice = createSlice({
     filter: '', 
   },
   reducers: {
-  searchContacts: (state, action) => {
-  return state.filter = action.payload
-  }
+    searchContacts: (state, action) => {
+      state.filter = action.payload;
+    },
   },
-  exstraReducers: {
-    [addUser.pending]:handlePending,
+  extraReducers: {
+    [addUser.pending]: handlePending,
     [addUser.fulfilled]: (state, action) => {
-        state.items = action.payload; 
-        state.isLoading = false;
-        state.error = null;
-        console.log(action.payload)
-  },
-
-    [addUser.rejected]:handleRejected,
-    [dltUser.pending]:handlePending,
-    [dltUser.fulfilled]:(state, action) => {
+      state.items.push(action.payload);
+      state.isLoading = false;
+      state.error = null;
+    },
+    [addUser.rejected]: handleRejected,
+    [dltUser.pending]: handlePending,
+    [dltUser.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = null;
       const index = state.items.findIndex(
-        task => task.id === action.payload.id
+        (task) => task.id === action.payload.id
       );
 
       state.items.splice(index, 1);
-    }
     },
-    [dltUser.rejected]:handleRejected,
-    
-    [getAllcontacts.pending]:handlePending,
-    
+    [dltUser.rejected]: handleRejected,
+
+    [getAllcontacts.pending]: handlePending,
+
     [getAllcontacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    [getAllcontacts.rejected]:handleRejected,
-    
+    [getAllcontacts.rejected]: handleRejected,
+  },
 });
 
-export const {searchContacts} = contactSlice.actions
+export const { searchContacts } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;
-
