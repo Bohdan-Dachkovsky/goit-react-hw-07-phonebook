@@ -28,7 +28,7 @@ export const contactSlice = createSlice({
         state.items = action.payload; 
         state.isLoading = false;
         state.error = null;
-        console.log(action)
+        console.log(action.payload)
   },
 
     [addUser.rejected]:handleRejected,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import styled from 'styled-components';
 import { dltUser } from '../../redux/operations.js';
 import { getTasks, getStatusFilter, getLoading, errorMessage} from '../../redux/contacts/selectors.js';
@@ -36,6 +36,7 @@ export default function ContactList() {
       .toLowerCase()
       .includes(filtered.toLowerCase()) 
   );
+ 
   return (
     <TaskList>
     {error || <p>Add contact please!</p>}
