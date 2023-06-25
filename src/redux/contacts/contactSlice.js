@@ -58,3 +58,4 @@ export const contactSlice = createSlice({
 
 export const {searchContacts} = contactSlice.actions
 export const contactReducer = contactSlice.reducer;
+
