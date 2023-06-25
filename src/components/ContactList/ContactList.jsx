@@ -34,7 +34,6 @@ export default function ContactList() {
   const isLoading = useSelector(getLoading);
   const error = useSelector(errorMessage);
   const filtered = useSelector(getStatusFilter);
-  console.log("constacts", contacts);
   const contactsName = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filtered.toLowerCase())
   );
