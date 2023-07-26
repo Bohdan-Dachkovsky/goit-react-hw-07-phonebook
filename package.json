@@ -47,6 +47,17 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross": "^7.0.3"
+  },
+  "eslintIgnore": [
+    "test/fixtures"
+  ],
+  "prettier": {
+    "arrowParens": "avoid",
+    "jsxSingleQuote": false,
+    "quoteProps": "consistent",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }
